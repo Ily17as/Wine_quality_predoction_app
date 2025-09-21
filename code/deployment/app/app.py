@@ -25,7 +25,7 @@ if st.button("Predict Quality"):
     # Сбор в DataFrame
     X_new = pd.DataFrame([features])
     # Загрузка модели (убедитесь, что wine_quality_model.joblib лежит рядом с app.py)
-    model = joblib.load("wine_quality_model.joblib")
+    model = joblib.load("models/wine_quality_model.joblib")
     # Предсказание
     pred = model.predict(X_new)[0]
     proba = model.predict_proba(X_new)[0][1]
