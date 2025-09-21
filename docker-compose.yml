@@ -1,7 +1,9 @@
 services:
 
   airflow-init:
-    image: apache/airflow:2.5.0
+    build:
+      context: .
+      dockerfile: services/airflow/Dockerfile
     environment:
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
@@ -24,7 +26,9 @@ services:
       "
 
   airflow-webserver:
-    image: apache/airflow:2.5.0
+    build:
+      context: .
+      dockerfile: services/airflow/Dockerfile
     command: webserver
     environment:
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
@@ -40,7 +44,9 @@ services:
       - postgres
 
   airflow-scheduler:
-    image: apache/airflow:2.5.0
+    build:
+      context: .
+      dockerfile: services/airflow/Dockerfile
     command: scheduler
     environment:
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
