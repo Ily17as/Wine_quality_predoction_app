@@ -1,0 +1,29 @@
+[2025-09-21T11:46:07.459+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2025-09-21T11:46:07.464+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-09-21T11:46:07.464+0000] {manager.py:486} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-09-21T11:46:07.464+0000] {manager.py:726} INFO - Searching for files in /opt/airflow/dags
+[2025-09-21T11:46:07.477+0000] {manager.py:729} INFO - There are 1 files in /opt/airflow/dags
+[2025-09-21T11:46:07.552+0000] {manager.py:851} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                             PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/data_pipeline.py    169  0.03s             0           0
+================================================================================
+[2025-09-21T11:46:37.691+0000] {manager.py:851} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                           PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/data_pipeline.py                           0           1  1.49s           2025-09-21T11:46:09
+================================================================================
+[2025-09-21T11:47:07.730+0000] {manager.py:851} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                           PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/data_pipeline.py                           0           1  0.46s           2025-09-21T11:46:39
+================================================================================

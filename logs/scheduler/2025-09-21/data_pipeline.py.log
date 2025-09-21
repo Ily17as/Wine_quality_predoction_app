@@ -1,0 +1,42 @@
+[2025-09-21T11:46:07.543+0000] {processor.py:153} INFO - Started process (PID=169) to work on /opt/airflow/dags/data_pipeline.py
+[2025-09-21T11:46:07.545+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/data_pipeline.py for tasks to queue
+[2025-09-21T11:46:07.546+0000] {logging_mixin.py:137} INFO - [2025-09-21T11:46:07.546+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_pipeline.py
+[2025-09-21T11:46:08.972+0000] {logging_mixin.py:137} INFO - [2025-09-21T11:46:08.965+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/data_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_pipeline.py", line 5, in <module>
+    from sklearn.model_selection import train_test_split
+ModuleNotFoundError: No module named 'sklearn'
+[2025-09-21T11:46:08.974+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/data_pipeline.py
+[2025-09-21T11:46:08.996+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/data_pipeline.py took 1.457 seconds
+[2025-09-21T11:46:39.172+0000] {processor.py:153} INFO - Started process (PID=176) to work on /opt/airflow/dags/data_pipeline.py
+[2025-09-21T11:46:39.173+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/data_pipeline.py for tasks to queue
+[2025-09-21T11:46:39.174+0000] {logging_mixin.py:137} INFO - [2025-09-21T11:46:39.174+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_pipeline.py
+[2025-09-21T11:46:39.579+0000] {logging_mixin.py:137} INFO - [2025-09-21T11:46:39.574+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/data_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_pipeline.py", line 5, in <module>
+    from sklearn.model_selection import train_test_split
+ModuleNotFoundError: No module named 'sklearn'
+[2025-09-21T11:46:39.581+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/data_pipeline.py
+[2025-09-21T11:46:39.600+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/data_pipeline.py took 0.431 seconds
+[2025-09-21T11:47:09.756+0000] {processor.py:153} INFO - Started process (PID=182) to work on /opt/airflow/dags/data_pipeline.py
+[2025-09-21T11:47:09.757+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/data_pipeline.py for tasks to queue
+[2025-09-21T11:47:09.758+0000] {logging_mixin.py:137} INFO - [2025-09-21T11:47:09.758+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_pipeline.py
+[2025-09-21T11:47:10.001+0000] {logging_mixin.py:137} INFO - [2025-09-21T11:47:09.995+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/data_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_pipeline.py", line 5, in <module>
+    from sklearn.model_selection import train_test_split
+ModuleNotFoundError: No module named 'sklearn'
+[2025-09-21T11:47:10.002+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/data_pipeline.py
+[2025-09-21T11:47:10.022+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/data_pipeline.py took 0.269 seconds

@@ -1,10 +1,39 @@
 services:
 
-  airflow-webserver:
+  airflow-init:
     image: apache/airflow:2.5.0
     environment:
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    depends_on:
+      - postgres
+    restart: on-failure
+    command: >
+      bash -c "
+      until airflow db check; do
+        sleep 5;
+      done;
+      airflow db migrate &&
+      airflow users create \\
+        --username admin \\
+        --firstname Airflow \\
+        --lastname Admin \\
+        --role Admin \\
+        --email admin@example.com \\
+        --password admin
+      "
+
+  airflow-webserver:
+    image: apache/airflow:2.5.0
+    command: webserver
+    environment:
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    volumes:
+      - ./services/airflow/dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
     ports:
       - "8080:8080"
     depends_on:
@@ -12,9 +41,15 @@ services:
 
   airflow-scheduler:
     image: apache/airflow:2.5.0
+    command: scheduler
     environment:
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    volumes:
+      - ./services/airflow/dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
     depends_on:
       - airflow-webserver
       - postgres
