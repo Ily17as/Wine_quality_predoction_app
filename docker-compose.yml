@@ -13,7 +13,7 @@ services:
       until airflow db check; do
         sleep 5;
       done;
-      airflow db migrate &&
+      airflow db upgrade &&
       airflow users create \\
         --username admin \\
         --firstname Airflow \\

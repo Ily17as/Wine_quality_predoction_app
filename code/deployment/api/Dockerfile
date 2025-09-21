@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./models /app/models
 
-COPY ./code/deployment/ /app/deployment/
+COPY ./code/deployment/api/ /app/
 
 EXPOSE 8000
 
