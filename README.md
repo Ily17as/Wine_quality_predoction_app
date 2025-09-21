@@ -51,13 +51,12 @@ This will build and start two containers:
 
 - Streamlit App: accessible at http://localhost:8501
  for user interaction.
-## Project Structure
 
 ## Stop the Containers
 ```bash
 docker-compose down
 ```
-
+## Project Structure
 ```
 .
 ├── code/
