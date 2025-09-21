@@ -2,6 +2,7 @@ services:
 
   airflow-webserver:
     image: apache/airflow:2.5.0
+    command: webserver
     environment:
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
@@ -12,6 +13,7 @@ services:
 
   airflow-scheduler:
     image: apache/airflow:2.5.0
+    command: scheduler
     environment:
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
