@@ -1,25 +1,55 @@
 services:
+
+  airflow-webserver:
+    image: apache/airflow:2.5.0
+    environment:
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  airflow-scheduler:
+    image: apache/airflow:2.5.0
+    environment:
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    depends_on:
+      - airflow-webserver
+      - postgres
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+
   api:
     build:
       context: .
       dockerfile: code/deployment/api/Dockerfile
-    container_name: wine_quality_api
     ports:
       - "8000:8000"
-    networks:
-      - wine_network
+    depends_on:
+      - airflow-webserver
 
   app:
     build:
       context: .
       dockerfile: code/deployment/app/Dockerfile
-    container_name: wine_quality_app
     ports:
       - "8501:8501"
     depends_on:
       - api
-    networks:
-      - wine_network
+
 
 networks:
   wine_network:
+
+volumes:
+  postgres-db-volume:
+    driver: local
